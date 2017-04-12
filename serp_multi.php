@@ -211,11 +211,11 @@
         }
 
        /**
-        * Crawl trough every page and pass the result to the find function until all the keywords are processed.
+        * Crawl through every page and pass the result
+        * to the find function until all the keywords are processed.
         */
         protected function crawl()
         {
-
             $this->setup();
             $html = $this->parse();
 
@@ -226,7 +226,6 @@
 
                 if($result !== FALSE)
                 {
-
                     if(!isset($this->found[$this->keywords[$i]]))
                     {
                         $this->found[$this->keywords[$i]] = $this->current + $result;
@@ -237,11 +236,10 @@
                         unset($this->keywords[$i]);
                     }
 
-
-
                     // remove the keyword from the haystack
                     unset($this->keywords[$i]);
                 }
+                
                 $i++;
             }
 
@@ -344,7 +342,7 @@
             {
 
                 $node = $node->nodeValue;
-                // look for links that look like this: cmsreport.com › Blogs › Bryan's blog
+                // look for links that look like this: cmsreport.com Â› Blogs Â› Bryan's blog
                 if(preg_match('/\s/',$node))
                 {
                     $site = explode(' ',$node);
